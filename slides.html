@@ -350,7 +350,31 @@
         Also note that the image tag has no closing tag.
       </script>
     </section>
-    
+
+    <section class="slide" data-markdown>
+      <script type="text/template">
+        #Paths
+
+        **Relative paths** are used to link to pages (or show images) which live on our own website.
+
+        These are like instructions that tell the browser how to get from point A (the current page) to point B (the new page or image).
+
+        ```
+        <a href="/home">Home</a>
+        <img href="/images/dogs/wishbone.jpg" alt="Wishbone solves another mystery!">
+        ```
+
+        **Absolute paths** are used when we need to make a connecton to an external site. All absolute paths begin with a protocol (eg. `http://` or `https://`).
+
+        These are more like an address: the browser may not know exactly where the address is, but it can look it up.
+
+        ```
+        <a href="https://www.canadalearningcode.ca/">Canada Learning Code</a>
+        <img src="https://placedog.net/500" alt="A nice dog!">
+        ```
+      </script>
+    </section>
+
     <section class="slide" data-markdown>
       <script type="text/template">
         #More Attributes
