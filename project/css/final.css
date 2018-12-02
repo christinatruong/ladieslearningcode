@@ -27,6 +27,7 @@ h1, h2, h3, h4 {
   font-weight: 400;
   margin: 0;
 }
+
 section h1, 
 header h2 {
   text-transform: uppercase;
@@ -35,10 +36,12 @@ header h1 {
   font-family: "Pacifico", Georgia, cursive;
   font-size: 80px;
 }
+
 header h2,
 section h1 {
   font-size: 32px;
 }
+
 section h1 {
   border-bottom: 1px solid #ccc;
   margin-bottom: 20px;
@@ -49,6 +52,7 @@ starting with the second section */
 section:nth-child(2n+1) { 
   background: #fefefe;
 }
+
 section:nth-child(2n+2) {
   color: #fff;
   background: rgba(0, 0, 0, 0.8);
@@ -70,6 +74,7 @@ ul li {
 }
 
 .content-wrap {
+  display: flex;
   width: 80%;
   max-width: 1000px;
   margin: 0 auto;
@@ -88,6 +93,11 @@ header {
 
 /* ABOUT ME / PROFILE
 ----------------------*/
+.profile .content-wrap {
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
 .profile h1 {
   background: #2C808C;
   display: inline-block;
@@ -96,13 +106,9 @@ header {
   margin-bottom: 10px;
   border: none;
 }
-.profile .summary {
-  float: left;
-  width: 70%;
-}
+
 .profile-image {
-  float: left;
-  width: 27%;
+  flex-basis: 27%;
   margin-right: 3%;
   padding: 4px;
   border: 1px solid #ddd;
@@ -114,11 +120,13 @@ header {
 -------------------------------*/
 /* job & education entries */
 .item {
+  display: flex;
   overflow: hidden;
   border-bottom: 1px solid #ccc;
   margin-bottom: 20px;
   padding: 20px 0;
 }
+
 .item:last-child {
   border-bottom: none;
   margin-bottom: 0;
@@ -127,28 +135,34 @@ header {
 
 /* WORK EXPERIENCE
 -------------------*/
+.work-experience .content-wrap {
+  flex-direction: column;
+}
+
 .work-experience .date {
   margin: 5px 0 20px 0;
   font-size: 12px;
 }
+
 .work-experience h3 {
   line-height: 1.25;
   font-size: 16px;
 }
+
 .work-experience a:hover {
   color: black;
 }
+
 .work-experience .details {
-  float: left;
-  width: 30%;
+  flex: 0 0 30%;
   padding-right: 30px;
 }
+
 .work-experience .description {
   font-size: 14px;
-  width: 70%;
-  float: right;
   margin-top: 5px;
 }
+
 .work-experience .description p:first-child {
   margin-top: 3px;
 }
@@ -165,8 +179,13 @@ header {
 .education h2 {
   text-transform: uppercase;
 }
+
 .education h3 {
   color: #2C808C;
+}
+
+.education .item {
+  flex-direction: column;
 }
 
 
@@ -175,28 +194,42 @@ header {
 .contact {
   background: #111;
 }
+
+.contact .content-wrap {
+  flex-wrap: wrap;
+}
+
+.contact h1 {
+  flex-basis: 100%;
+  order: 1;
+}
+
 .contact p {
   margin: 0;
 }
-.contact p:first-of-type {
-  margin-top: 35px;
-}
+
 .contact .social {
-  width: 50%;
-  float: right;
+  flex-basis: 50%;
   text-align: right;
   font-size: 30px;
+  order: 3;
 }
+
 .contact .social a {
   margin: 0 8px;
 }
 
-footer {
-  clear: both;
-  font-size: 12px;
-  margin-top: 50px;
+.contact .info {
+  flex-basis: 50%;
+  order: 2;
 }
 
+footer {
+  font-size: 12px;
+  margin-top: 50px;
+  flex-basis: 100%;
+  order: 4;
+}
 
 
 /* MEDIA QUERIES
@@ -206,45 +239,54 @@ footer {
   body {
     /*color: blue;*/
   }
+
   /* About section */
   .profile-image {
     width: 48%;
-    float: right;
-    margin: 0 0 15px 2%;
+    margin: 0 0 0 2%;
+    order: 1;
   }
-  .profile .summary {
-    width: auto; /* resets the width setting */
-    /* or could also use width: 50% - if you don't want the text to wrap */
-    float: none; /* removes the float */
+
+  .item {
+    flex-direction: column; /* Change the orientation from 'row' to 'column'. */
   }
+
   .work-experience .details {
-    float: none; /* removed float */
-    width: 100%; /* auto will work as well */
-    padding-right: 0px; /* don't need padding anymore now that it spans across the page */
+    flex-basis: 100%; /* Take up 100% of the horizontal space. */
+    padding-right: 0px; /* Don't need padding anymore now that it spans across the page. */
   }
+
   .work-experience .description {
-    width: 100%;
-    float: none; /* removed float */
+    flex-basis: 100%; /* Take up 100% of the horizontal space. */
   }
 }
+
 @media (max-width: 600px) {
   header {
     padding: 75px 40px;
   } 
+  
   header h1 {
     font-size: 45px;
   }
+  
   header h2,
   section h1 {
     font-size: 24px;
   }
+  
   .education h2 {
     font-size: 18px;
   }
+  
   .contact .social {
-    width: 100%; 
-    float: left; 
-    text-align: left; 
+    flex-basis: 100%; /* Take up 100% of the horizontal space. */
+    order: 2; /* Display the socials as the second element. */
+    text-align: left; /* Align the icons to the left. */
     margin-bottom: 20px;
+  }
+  
+  .contact .info {
+    flex-basis: 100%; /* Take up 100% of the horizontal space. */
   }
 }
