@@ -176,6 +176,10 @@ header {
 
 /* EDUCATION
 -------------*/
+.education .content-wrap {
+  flex-direction: column;
+}
+
 .education h2 {
   text-transform: uppercase;
 }
