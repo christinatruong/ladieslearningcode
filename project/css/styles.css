@@ -25,18 +25,22 @@ h1, h2, h3, h4 {
   font-weight: 400;
   margin: 0;
 }
+
 section h1, 
 header h2 {
   text-transform: uppercase;
 }
+
 header h1 {
   font-family: "Pacifico", Georgia, cursive;
   font-size: 80px;
 }
+
 header h2,
 section h1 {
   font-size: 32px;
 }
+
 section h1 {
   border-bottom: 1px solid #ccc;
   margin-bottom: 20px;
@@ -47,6 +51,7 @@ starting with the second section */
 section:nth-child(2n+1) { 
   background: #fefefe;
 }
+
 section:nth-child(2n+2) {
   color: #fff;
   background: rgba(0, 0, 0, 0.8);
@@ -55,6 +60,7 @@ section:nth-child(2n+2) {
 a {
   color: #2C808C;
 }
+
 a:hover {
   color: white;
   text-decoration: none;
@@ -63,11 +69,13 @@ a:hover {
 ul {
   padding-left: 20px;
 }
+
 ul li {
   margin-bottom: 5px;
 }
 
 .content-wrap {
+  display: flex;
   width: 1000px;
   margin: 0 auto;
   padding: 90px 0; 
@@ -85,6 +93,11 @@ header {
 
 /* ABOUT ME / PROFILE
 ----------------------*/
+.profile .content-wrap {
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
 .profile h1 {
   background: #2C808C;
   display: inline-block;
@@ -93,13 +106,9 @@ header {
   margin-bottom: 10px;
   border: none;
 }
-.profile .summary {
-  float: left;
-  width: 70%;
-}
+
 .profile-image {
-  float: left;
-  width: 27%;
+  flex-basis: 27%;
   margin-right: 3%;
   padding: 4px;
   border: 1px solid #ddd;
@@ -111,11 +120,13 @@ header {
 -------------------------------*/
 /* job & education entries */
 .item {
+  display: flex;
   overflow: hidden;
   border-bottom: 1px solid #ccc;
   margin-bottom: 20px;
   padding: 20px 0;
 }
+
 .item:last-child {
   border-bottom: none;
   margin-bottom: 0;
@@ -124,28 +135,34 @@ header {
 
 /* WORK EXPERIENCE
 -------------------*/
+.work-experience .content-wrap {
+  flex-direction: column;
+}
+
 .work-experience .date {
   margin: 5px 0 20px 0;
   font-size: 12px;
 }
+
 .work-experience h3 {
   line-height: 1.25;
   font-size: 16px;
 }
+
 .work-experience a:hover {
   color: black;
 }
+
 .work-experience .details {
-  float: left;
-  width: 30%;
+  flex: 0 0 30%;
   padding-right: 30px;
 }
+
 .work-experience .description {
   font-size: 14px;
-  width: 70%;
-  float: right;
   margin-top: 5px;
 }
+
 .work-experience .description p:first-child {
   margin-top: 3px;
 }
@@ -159,11 +176,20 @@ header {
 
 /* EDUCATION
 -------------*/
+.education .content-wrap {
+  flex-direction: column;
+}
+
 .education h2 {
   text-transform: uppercase;
 }
+
 .education h3 {
   color: #2C808C;
+}
+
+.education .item {
+  flex-direction: column;
 }
 
 
@@ -172,31 +198,43 @@ header {
 .contact {
   background: #111;
 }
+
+.contact .content-wrap {
+  flex-wrap: wrap;
+}
+
+.contact h1 {
+  flex-basis: 100%;
+  order: 1;
+}
+
 .contact p {
   margin: 0;
 }
-.contact p:first-of-type {
-  margin-top: 35px;
-}
+
 .contact .social {
-  width: 50%;
-  float: right;
+  flex-basis: 50%;
   text-align: right;
   font-size: 30px;
+  order: 3;
 }
+
 .contact .social a {
   margin: 0 8px;
 }
 
-footer {
-  clear: both;
-  font-size: 12px;
-  margin-top: 50px;
+.contact .info {
+  flex-basis: 50%;
+  order: 2;
 }
 
+footer {
+  font-size: 12px;
+  margin-top: 50px;
+  flex-basis: 100%;
+  order: 4;
+}
 
 
 /* MEDIA QUERIES
 --------------------*/
-
-

@@ -350,7 +350,31 @@
         Also note that the image tag has no closing tag.
       </script>
     </section>
-    
+
+    <section class="slide" data-markdown>
+      <script type="text/template">
+        #Paths
+
+        **Relative paths** are used to link to pages (or show images) which live on our own website.
+
+        These are like instructions that tell the browser how to get from point A (the current page) to point B (the new page or image).
+
+        ```
+        <a href="/home">Home</a>
+        <img href="/images/dogs/wishbone.jpg" alt="Wishbone solves another mystery!">
+        ```
+
+        **Absolute paths** are used when we need to make a connecton to an external site. All absolute paths begin with a protocol (eg. `http://` or `https://`).
+
+        These are more like an address: the browser may not know exactly where the address is, but it can look it up.
+
+        ```
+        <a href="https://www.canadalearningcode.ca/">Canada Learning Code</a>
+        <img src="https://placedog.net/500" alt="A nice dog!">
+        ```
+      </script>
+    </section>
+
     <section class="slide" data-markdown>
       <script type="text/template">
         #More Attributes
@@ -1162,29 +1186,24 @@ selector { /* select the paragraph inside of the about element */
       <script type="text/template">
         #Exercise (~20mins) - Updating the About section
 
-        Using the dev tools, we've determine where and what changes to make. Take this time to try the instructions below to add these updates to your project.  Work with a partner or with a mentor! 
+        Using the dev tools, we've determined where and what changes to make. Take this time to try the instructions below to add these updates to your project.  Work with a partner or with a mentor!
 
         1. add a media query with a breakpoint around 768px - 900px-ish
-        1. For `.profile-image`, these are the values that need to change:
+        1. Adjust the `.profile-image` rule to:
+          * increase the profile image width;
+          * make the image appear on the right.
+
         ```
-        float: left;
-        width: 27%;
-        margin-right: 3%;
+          flex-basis: 27%;
+          margin-right: 3%;
         ```
-          * adjust these values to make it float to the right
-          * increase the profile image width
-        1. For `.profile .summary`, these are the values that need to change:
-        ```
-        float: left;
-        width: 70%;
-        ```
-          * adjust these values to reflect the width changes in the profile image
-          * remove the float so the text wraps the image
+
+        ##Bonus:
+        * Since we're using `flexbox`, increasing the size of the image will cause the 'summary' to scale down automatically.
 
         ##Hints:
-        * make sure your total width percentages equals 100%, including margin!
-        * use the value of `none` to reset a float
-        * a sample solution is on the next slide
+        * Moving the image to the right will require a new declaration.
+        * A sample solution is on the next slide.
       </script>
     </section>
 
@@ -1204,13 +1223,8 @@ selector { /* select the paragraph inside of the about element */
           /* About section */
           .profile-image {
             width: 48%;
-            float: right;
-            margin: 0 0 15px 2%;
-          }
-          .profile .summary {
-            width: auto; /* resets the width setting */
-            /* or could also use width: 50% - if you don't want the text to wrap */
-            float: none; /* removes the float */
+            margin: 0 0 0 2%;
+            order: 1;
           }
         }
         ```
@@ -1237,24 +1251,17 @@ selector { /* select the paragraph inside of the about element */
         
         ```css
         .work-experience .details {
-          float: left;
-          width: 30%;
+          flex: 0 0 30%;
           padding-right: 30px;
-        }
-        .work-experience .description {
-          font-size: 14px;
-          width: 70%;
-          float: right;
-          margin-top: 5px;
         }
         ```
         
         * To get rid of the floated two columns try adding these styles:
-          * reset the float (hint: use `none`)
-          * adjust the width to span all the way across
-          * remove/update any padding & margin to your liking
+        * To convert the two column layout to a single column, lets:
+          * Change the orientation of the flex parent (ie. `.item`).
+          * Adjust the width of the `.details` and `.description`.
+          * Remove/update the padding and margins.
 
-        
         <!-- .element: class="note" -->**Pro tip!** Only use the properties that need to be changed.  For example, if the font-size doesn't need to be change, no need to add it to the media query.
 
         Solution CSS on the next slide but try not to peek!
@@ -1270,14 +1277,17 @@ selector { /* select the paragraph inside of the about element */
       This could be included in either the 600px - 800px media query, depending on your design preference. 
 
       ```css
-      .work-experience .details {
-        float: none; /* removed float */
-        width: 100%; /* auto will work as well */
-        padding-right: 0px; /* don't need padding anymore now that it spans across the page */
+      .item {
+        flex-direction: column; /* Change the orientation from 'row' to 'column'. */
       }
+
+      .work-experience .details {
+        flex-basis: 100%; /* Take up 100% of the horizontal space. */
+        padding-right: 0px; /* Don't need padding anymore now that it spans across the page. */
+      }
+
       .work-experience .description {
-        width: 100%;
-        float: none; /* removed float */
+        flex-basis: 100%; /* Take up 100% of the horizontal space. */
       }
       ```
       </script>
@@ -1352,8 +1362,48 @@ selector { /* select the paragraph inside of the about element */
     
     <section class="slide" data-markdown>
       <script type="text/template">
-        #Hiding Elements
+        #Exercise: Update the footer (~15mins)
+
+        Make these changes in the 600px media query.
+
+        1. Make sure the socials and info span the full width of their parent.
+        1. Align the social icons to the left.
+        1. Change the order of the content so that the socials appear above the info.
         
+        **Hint!** Remember how we changed the order of the `.profile-image`.
+      </script>
+    </section>
+
+    <section class="slide" data-markdown>
+      <script type="text/template">
+        #Exercise solution & review
+
+        ```css
+        @media (max-width: 600px) {
+          /* this is here just for testing */
+          body {
+            color: red;
+          }
+
+          .contact .social {
+            flex-basis: 100%; /* Take up 100% of the horizontal space. */
+            order: 2; /* Display the socials as the second element. */
+            text-align: left; /* Align the icons to the left. */
+            margin-bottom: 20px;
+          }
+
+          .contact .info {
+            flex-basis: 100%; /* Take up 100% of the horizontal space. */
+          }
+        }
+        ```
+      </script>
+    </section>
+
+    <section class="slide" data-markdown>
+      <script type="text/template">
+        #Hiding Elements
+
         Here's how to do it, but don't make this a habit. 
         
         It's convenient but the browser still needs to load this code, and that slows your site down. 
@@ -1365,7 +1415,7 @@ selector { /* select the paragraph inside of the about element */
           }
         }
         ```
-        
+
         Use it sparingly!
       </script>
     </section>
@@ -1428,25 +1478,29 @@ selector { /* select the paragraph inside of the about element */
       * [mediaqueri.es/](http://mediaqueri.es/) - collection of responsive websites
       * http://responsivenavigation.net/ - responsive navigation examples
       * [Google: The New Multi-Screen World](https://www.thinkwithgoogle.com/research-studies/the-new-multi-screen-world-study.html)
-      * Explore more Ladies Learning Code workshops by following our [Roadmap](http://ladieslearningcode.com/roadmap/).
       
       </script>
     </section>
 
     <section class="slide small-type" data-markdown>
       <script type="text/template">
-      #Getting your site online
+      #Next Steps
 
-      You will need to register a domain name and purchase hosting. Here are some suggestions:
+      Explore more Ladies Learning Code workshops by following our [Roadmap](http://ladieslearningcode.com/roadmap/).
+
+      ##Getting your site online
       
-      * [dreamhost.com](http://www.dreamhost.com/r.cgi?2085384) - domains and hosting - use promo code **LLC40** to get $40 off your registration!
-      * [hover.com](http://hover.com/ladiescode) - domains - save 10% with the promo code "learningcode"
+      You will need to register a domain name and purchase hosting. Here are some suggestions:
+
+      * Host your site for free with [github pages](https://pages.github.com/)
+      * [namecheap.com](https://www.namecheap.com/) - website hosting
+      * [hover.com](http://hover.com/ladiescode) - domain names and personal emails
 
       Why keep your domains and hosting separate?<!-- .element: class="note" --> [Learn more about Hover](http://ladieslearningcode.com/getting-hosted-domains-with-hover/).
 
       You will also need to upload your files to your hosting server. You will need some info usually provided by your hosting service provider: FTP Address, Username, Password.
 
-      Here's a tutorial getting your files online using FileZilla: [FileZilla Client Tutorial](https://wiki.filezilla-project.org/FileZilla_Client_Tutorial_%28en%29)  
+      Here's a tutorial getting your files online using FileZilla: [FileZilla Client Tutorial](https://wiki.filezilla-project.org/FileZilla_Client_Tutorial_%28en%29)
       </script>
     </section>
 
