@@ -1,5 +1,5 @@
-#Ladies Learning Code
-##Intro to HTML5 and Responsive Design
+# Ladies Learning Code
+## Intro to HTML5 and Responsive Design
 
 This workshop covers HTML and CSS basics, media queries, responsive design theory and practice, and is intended for beginners though learners should have some familiarity with HTML & CSS before taking this course.
 
