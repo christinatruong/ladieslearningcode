@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>Ladies Learning Code</title>
+  <link rel="stylesheet" href="framework/css/slideshow.css" data-noprefix>
+  <link rel="stylesheet" href="framework/css/fonts.css" data-noprefix>
+  <link rel="stylesheet" href="framework/css/highlightjs/github.css" data-noprefix>
+  <link rel="stylesheet" href="framework/css/styles.css" data-noprefix>
+  <link rel="shortcut icon" href="framework/img/favicon.ico">
+
+  <!-- Takes care of CSS3 prefixes -->
+  <script src="framework/scripts/prefixfree.min.js"></script>
+
+  <!-- opens all links in a new window -->
+  <base target="_blank">
+</head>
+
+<!-- Timer/progress bar: Define the presentation duration using "data-duration" in minutes. -->
+<body class="en" data-duration="360">
+
+
+  <main>
+
+  <section class="slide" data-toc data-markdown>
+    <script type="text/template">
+      ###Instructor Notes
+
+      ###Ladies Learning Code: Intro to Responsive Web Design
+
+      <br>
+      ##Schedule
+
+      <strong> Important note:</strong>
+      This is a guideline, not a rule! It is more important that the learners are following along then it is to get to the end of the slides!
+
+      <em>Please note</em>: this schedule is for a single day workshop.
+      If you are leading two weekday evenings, you can split this schedule up accordingly. Please remember to take a 15-30 minute break on both days. The first 15-20 minutes of the second day should be allocated for review and questions from the prior session.
+
+      * <strong>Intro (10:00 am - 11:00 am)</strong>: Today's Goal, Responsive theory, HTML overview
+      * <strong>Intro to CSS (11:00 am - 12:30 am)</strong>: Intro to CSS, Media Queries
+      * <strong>Lunch Break! (12:30 pm - 1:00 pm)</strong>
+      * <strong>More CSS (1:00 pm - 3:30 pm)</strong>: Device Testing, Flexbox, Typography
+      * <strong>Wrapping it up (3:30 pm - 4:00 pm)</strong>
+
+
+      <br>
+      ##General Notes
+
+      * <strong>Important!</strong> Please give learners enough time to download learner files. Check in as people are entering the room to make sure they have learner files.
+      * A common issue with leaner files - make sure Windows users extract the folder. If a learner sees the slides without any styles, that is probably why.
+      
+      Before the class starts, update the WiFi credentials on slide 1.
+
+      This workshop will allow us to focus on CSS by providing the learners with all the HTML they'll need for the day's project. They will develop the skills to read HTML, change content where needed, and understand how to apply attributes like classes and ids to their markup that can then be used or styling.
+
+      <br>
+      ##Specific Examples
+
+
+      **Slide 6: GETTING SET UP**
+
+      Ever browser will render a web page SLIGHTLY differently. It's part of a developer's job to correct for this and make sure the experience is the same across all browsers. To make today's experience flows seamlessly, we're all going to use the same browser.
+
+
+      **Slide 13: DEVELOPER TOOLS**
+
+      Using the Developer Tools can be really intimidating for beginners, especially this early on in the class.  Underscore that these tools help make your workflow more efficient once you become more proficient with code. Some of the learners will dive right in, but some may not be ready to use them today, and that's perfectly okay! They may need some extra assistance during the media queries portion of the lesson.
+
+
+      **Slide 9: DIFFERENT TYPES OF WEB DESIGN**
+
+      Open http://www.liquidapsive.com/ and choose 'Static' in the dropdown in the top right to start. The learners can do this along with you, or they can just follow you along on the projector - coder's choice! Resize the browser to a width at which a horizontal scrollbar is introduced. Ask the learners if they've ever seen a site like this on their mobile phones before, and ask them to describe why using a site with a static layout can be challenging.
+      
+      Now switch to 'Liquid' and continue to resize your browser. Ask a learner to describe what difference they see taking effect. Now ask another learner why this method would not be ideal for mobile phones.
+      
+      Now switch to 'Adaptive'. Slowly resize the browser, noting each breakpoint and what changes take shape. Ask the learners (or mentors) what they think the disadvantages of this method would be. *Answer:* it changes the layout to fit a pre-defined set of resolutions (typically iPhone, iPad vertical, iPad horizontal, Macbook). This is not OS agnostic or future-proof, because new devices at new resolutions are being introduced every day.
+
+      Finally, switch to 'Responsive' and ask a new learner (one who hasn't contributed yet) what elements of the other options are present in Responsive. 
+
+
+      **Slides 10-13**
+
+      If you got a lot of engagement on the activity in the last slide, you can use these slides as a recap. If you didn't get much participation, or if learners still seem a little confused, take a little more time on these slides.
+
+      The important point to drive home here is that these different options were how responsive design has progressed over time (just under a decade), so we're not asking them to choose one of these methods. Responsive design combines elements of what has worked in the past and learning from what has not. 
+
+
+      **Slide 14: MOBILE-FIRST DESIGN**
+
+      **Graceful degradation** - Desktop-first, take away elements you don't need as resolution gets smaller<br>
+      **Progressive enhancement** - Mobile-first - focus on the most essential information, and add more elements when real estate is available.
+
+      Today we are using the graceful degradation, desktop-first approach.
+
+      Many of us developers have tried both approaches and have a preference of which method to use. It may depend on which your client wants to see first. Share you thoughts about which approach you prefer, and invite the mentors to share their experiences as well.
+
+
+      **Slide 17: HTML ELEMENTS**
+
+      Let the learners know that not even professionals have all the elements memorized! It's a good idea to bookmark some frequently used resources (found on this slide), or walk them through how to search on Google, like 'HTML tag for a hyperlink' or 'HTML tags for sectioning'.
+
+
+      **Slide 18: COMMON HTML ELEMENTS: TITLE**
+
+      Note that this tag is in the `head` element, and most of the other tags we're about to review will be placed in the `body`.
+      People can SEE your body, but they cannot see what is going on inside your head. What's going on inside your head is integral to making your body function, but you have to take a peak "under the hood" (viewsource) in order to see what elements are in the `head`.
+
+
+      **Slide 19: COMMON HTML ELEMENT: LISTS**
+
+      With the power of CSS, you can change a numbered list to show letters of the alphabet, roman numerals or more! There are also many ways to style unordered lists to use any symbol or shape you want.
+
+
+      **Slide 21: HTML WITH ATTRIBUTES**
+
+      To explain attributes in general, you can show them a fake tag to represent your coffee order:
+
+      ```
+      <coffee order="latte" milk="almond" sweetener="honey">Laura</coffee>
+      ```
+
+      We add `alt` text to describe what the image is of for users who cannot see the image. This is also helpful if the image isn't loading - you will see the text instead so you have an idea of what you need to fix.
+
+      An image is a self-closing tag because it has all the information it needs by way of attributes.
+
+
+      **Slide 22: PATHS**
+
+      A relative path is like giving someone directions from point a to b. An absolute path is like giving someone an address.
+
+
+      **Slide 23: MORE ATTRIBUTES**
+
+      ids are typically used for JavaScript and may not be necessary for CSS. When it doubt, use a class. But it's good to know how to select an id if you're working with existing markup.
+
+      A `class` is like a piece of tape on a ziploc container in your fridge. It should describe the contents of the container.
+
+      **Slide 24: NESTED TAGS**
+
+      Compare this to layering two sweaters - the order in which they close matters! You have to zip up your inner sweater before you can zip up the outer sweater - if you try to cross the zippers up, it won't work!
+
+      Indentation is ESSENTIAL, especially for beginners, to better exercise the pattern recognition parts of their brains. It makes debugging your code 100x easier. REALLY emphasize and encourage good habits early on, and keep reinforcing them as much as possible. When you're doing a code-along activity, tell them out loud when it's important to indent, and when it is more of a personal preference (eg. text within an `<a>` tag).
+
+
+      **Slide 25: HTML RELATIONSHIPS**
+
+      Keep this graphic up and ask learners to answer these questions. Try to call on people who have not yet had a chance to participate.
+
+      1. What is the relationship of the `title` to the `head`? (child)
+      2. What is the relationship of the `ul` to the `li`? (parent)
+      3. What is the relationship of the `body` to the `p`? (grandparent)
+      4. What is the relationship of the `p` to the `h1`? (sibling)
+      5. What is the relationship of the `li` to the `body`? (great-grandchild)
+
+
+      **Slide 29: OPEN THE PROJECT FILES**
+
+      Take the time to walk through this, a couple times if necessary. Some people out of habit will just go to File > Open instead of 'Add Project Folder'.
+
+
+      **Slide 34: CSS SYNTAX**
+
+      You can use the coffee order analogy again to explain how properties are applied to a selector. The barista is looking for YOU, as the selector. Then they gather the properties you want in your beverage order:
+
+      ```
+      laura{
+         order: cold-brew;
+         milk: soy;
+         flavour: vanilla;
+      }
+      ```
+
+      Don't forget to enforce and encourage indentation when writing CSS as often as possible.
+
+
+      **Slide 35: PRACTICE WRITING SOME CSS**
+
+      Note the American spelling of the word 'color' needs to be used. It's a common hiccup for beginners.
+
+
+      **Slide 37: TYPE & DESCENDANT SELECTORS**
+
+      It can help to either read this from right to left, or where you see a space, imagine saying "and then...". Each space looks one level deeper.
+
+
+      **Slide 41: COMBINING SELECTORS**
+
+      A common mistake is to use the syntax or descendant selectors when you meant to combine selectors, or vice versa. Commas are used when you are listing items in a sentence: "I need to buy bread, apples, bananas, etc."
+
+
+      **Slide 45: CASCADING & SPECIFICITY**
+
+      A trick to avoid duplicate selectors is to run a Find (`ctrl/cmd` + `f`) in the style sheet and check if you have already used that selector before creating a new one.
+
+      Why is the `section h2` more specific? Because it is a **descendant selector**. Descendant selectors are always more specific than type selectors.
+
+
+      **Slide 52: MEDIA QUERIES**
+
+      Media types include screen, print, speech, and all. All is used by default if you don't specify.
+
+      Encourage them to use comments beside media queries to remember what they describe, like ```/*equal to or less than 940px wide*/```
+
+
+      **Slide 55: MEDIA QUERIES**
+
+      It's cool to know all your options, but switching between max and min width and combining them can be really confusing to follow, even for seasoned developers. Encourage them to use one direction and stick with it for today's project, and use the others just for experimentation.
+
+
+      **Slide 57: TESTING MEDIA QUERIES**
+
+      You could also try something like this:
+
+      ```
+      @media (max-width: 1000px) {
+        * { /* select all elements */
+          /* like border, but doesn't have any effect on the layout */
+          outline: 1px solid red;
+        }
+      }
+      @media (max-width: 600px) {
+        * {
+          outline: 1px solid blue;
+        }
+      }
+      ```
+      
+      **Slide 58: EXERCISE: MEDIA QUERIES (~15 MINS)**
+
+      Tip: create one media query first, save & test. If it works, create the 2nd one. If you made a syntax error, it's easier to debug that first, and then copy and paste so you don't have to identify and correct your mistake multiple times. Working in small chunks at a time and testing along the way is the most efficient way to debug your code.
+
+
+      **Slide 65: DON'T FORGET THE VIEWPORT META TAG!**
+
+      "Meta" means data about data. It won't be displayed on the page (cause it's in the head), but it will be interpreted by browsers, web services or search engines.
+      There are many different types of meta tags. They always use the `meta` HTML tag, but the `name` attribute will describe its function. Some other examples of this include `description` or `keywords` that can be used for SEO.
+      
+      `width=device-width` - this may seem like a 'no duh' scenario, but remember that computers don't have common sense like you do, so sometimes we have what seems to be redundant code because the computer needs very specific instructions.
+
+
+      **Slide 67: PADDING & MARGIN**
+
+      Imagine you're packaging a fragile object for shipping. The `padding` is like the bubble wrap or packing peanuts that go inside the box to protect the object. The border is like the edge of the box. The margin is the distance between the box and whatever is around it.
+
+
+      **Slide 69: CLASS EXERCISE**
+
+      Walk through this together: open the dev tools and inspect the image. What selector did we use last time? Copy and paste that selector into your stylesheet, this time within your media query.
+
+
+      **Slide 71: WHAT IS FLEXBOX?**
+
+      Don't derail the lesson too much by going into depth on this. However, they will need to use the `order` property to solve the exercise. Ask them to Google 'flexbox order property' and play around with the values to see what changes.
+
+
+      **Slide 73: WHAT ELSE CAN WE CHANGE?**
+
+      Before proceeding to the next slide, use your dev tools to identify which element is that left column that contains the company name and job title. It is a `div` with a `class` of 'details'. That is the element we'll need to select.
+
+
+      **SLide 74: EXERCISE (~20MINS) - UPDATING WORK EXPERIENCE**
+
+      This is going to be the most challenging exercise because it is pretty hard to understand how `flexbox` works when you've just written your first line of CSS today. The properties they need to change are all listed or hinted to on this slide, so they can Google those properties and change the values to observe the outcome. This would be a great exercise to do in pairs - 1 learner can Google the properties while the other learner applies them, and they can both observe the outcome together.
+
+      
+      **Slide 79: EXERCISE SOLUTION & REVIEW**
+
+      Instead of px values which themselves are static and fixed, which is the opposite of what we want when it comes to being responsive, you could show them how to use % values for the padding instead.
+      You could also briefly talk about `em` and `rem` measurements of `font-size`, if you have time. 
+
+
+      **Slide 82: HIDING ELEMENTS**
+
+      The browser will parse the HTML element itself, and then hide it. It happens so fast that you may not see it happen, but imagine applying this to a huge image or to a video file. The file is still being loaded, but is then being hidden. That's why for performance purposes this isn't the best solution. For hiding small pieces of text it's perfectly suitable since that will have very little impact on the load time.
+
+
+      **Slide 84: Today...**
+
+      Now is the time to acknowledge and congratulate the learners - they should feel proud for taking the time to learn something new, push themselves out of their comfort zone and challenge themselves. This workshop covered a lot, so feeling overwhelmed is totally expected and normal. Don't forget to acknowledge and thank the mentors at this time too!
+
+
+      **Slide 88: ADDITIONAL RESOURCES**
+
+      Get them excited about where they can go from here, whether that be through more workshops with us, independent learning, or where they can find local meet-up groups or events, online or in person. 
+
+      **Slide 89: GETTING YOUR SITE ONLINE**
+
+      If you have the time, talk about the difference between a domain name and a hosting provider - a lot of people think that you only have to purchase a domain name to get your site online and aren't aware of the hosting part. You can describe this as paying rent for a physical space (computer) where your files will live.
+
+
+    </script>
+  </section>
+
+  </main><!-- cls main section -->
+
+  <script src="framework/scripts/jquery-1.11.0.min.js"></script>
+  <script src="framework/scripts/slideshow.js"></script>
+
+  <!-- Uncomment the plugins you need -->
+  <script src="framework/scripts/plugins/css-edit.js"></script>
+  <script src="framework/scripts/plugins/css-snippets.js"></script>
+  <script src="framework/scripts/plugins/css-controls.js"></script>
+  <!-- <script src="plugins/code-highlight.js"></script>-->
+
+  <script src="framework/scripts/plugins/markdown/marked.js"></script>
+  <script src="framework/scripts/plugins/markdown/markdown.js"></script>
+  <script src="framework/scripts/plugins/highlight/highlight-8.4.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <script src="framework/scripts/llc.js"></script>
+  <script>
+    var slideshow = new SlideShow();
+
+    // Grabs all the .snippet elements
+    var snippets = document.querySelectorAll('.snippet');
+    for(var i=0; i<snippets.length; i++) {
+      new CSSSnippet(snippets[i]);
+    }
+  </script>
+</body>
+</html>
