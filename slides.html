@@ -154,7 +154,7 @@
       <script type="text/template">
         #Different types of web design
 
-        In order to understand responsive web design and web development better, we have to understand what the options are:
+        In order to understand responsive web design and web development better, we have to understand what our options are:
 
         Fixed/Static, Fluid/Liquid, Adaptive, Responsive
 
@@ -172,7 +172,7 @@
 
     <section class="slide" data-markdown>
       <script type="text/template">
-      #Fixed Web Design
+      #Fixed/Static Web Design
 
       *   Everything has a set width (eg. 960px).
       *   Popular method before mobile browsing became commonplace.
@@ -186,13 +186,11 @@
 
     <section class="slide" data-markdown>
       <script type="text/template">
-        #Fluid web design
+        #Fluid/Liquid web design
 
         *   Based on percentage widths, each block of content takes up a percentage of the page. (e.g. a sidebar with a width of 30% and main section with a width of ~70%)
         *   When you resize the browser, the blocks will resize *relative* to the size of the page (aka the "viewport").
         *   Not optimized for smaller screens & mobile devices.
-
-        >Let's take a look at an example [here](http://alistapart.com/d/responsive-web-design/ex/ex-site-flexible.html).  Try making your browser window bigger and smaller.  What happens to the page layout?
 
       </script>
     </section>
@@ -205,8 +203,6 @@
       *   Uses _media queries_ to target specific viewport sizes (more on this later).
       *   The content itself changes.
       *   Best to think of it as a _set_ of fixed layouts that are invoked in response to the device size.
-
-      >Let's take a look at an example [here](http://www.screamingfrog.co.uk/). Try making your browser window bigger and smaller. How is this different from the fluid layout?
       </script>
     </section>
 
@@ -218,8 +214,6 @@
         *   Page components are **flexible** in between common device sizes.
         *   _Also_ uses media queries to change the layout based on device size.
         *   Designed with **breakpoints** to present content in the most suitable way for common device sizes.
-
-        > Let's compare the difference between a [fluid layout](http://alistapart.com/d/responsive-web-design/ex/ex-site-flexible.html) vs [fluid and responsive](http://alistapart.com/d/responsive-web-design/ex/ex-site-FINAL.html).
       </script>
     </section>
 
@@ -244,12 +238,13 @@
     <section class="slide title" data-markdown data-toc>
       <script type="text/template">
       <h1>HTML Overview</h1>
+      <h2>HyperText Markup Language</h2>
       </script>
     </section>
 
     <section class="slide" data-markdown>
       <script type="text/template">
-        #HTML (HyperText Markup Language)
+        #HTML - The Content Layer
 
         * HTML is the language browsers read, HTML5 is the latest version
         * used to wrap content to assign meaning to the web document
@@ -262,6 +257,10 @@
         Almost all elements have an "opening" tag and a "closing" tag. The closing tag has a forward slash (`/`).
 
         Example:
+
+        ```xml
+        <p>This is a paragraph.</p>
+        ```
 
         ```xml
         <p>Paragraph with a <a href="#">link</a>.</p>
@@ -277,7 +276,7 @@
 
         More resources:
 
-        * [http://www.sitepoint.com/web-foundations/elements/](http://www.sitepoint.com/web-foundations/elements/)
+        * [HTML elements reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element)
         * [http://websitesetup.org/html5-cheat-sheet/](http://websitesetup.org/html5-cheat-sheet/)
         * [html-elements.txt](project/html-elements.txt), located in your **project** folder
 
@@ -312,6 +311,16 @@
         * unordered (`ul`) for lists that don't require a specified order
 
         Content must be included only within the list item (`li`).
+
+        <ul style="display: inline-block; width: 40%; margin: 2%;">
+          <li>Unordered list item</li>
+          <li>Unordered list item</li>
+        </ul>
+
+        <ol style="display: inline-block; width: 40%; margin: 2%;">
+          <li>Ordered list item</li>
+          <li>Ordered list item</li>
+        </ol>
 
         ```xml
         <ul>
@@ -381,7 +390,7 @@
         <img href="/images/dogs/wishbone.jpg" alt="Wishbone solves another mystery!">
         ```
 
-        **Absolute paths** are used when we need to make a connecton to an external site. All absolute paths begin with a protocol (eg. `http://` or `https://`).
+        **Absolute paths** are used when we need to make a connection to an external site. All absolute paths begin with a protocol (eg. `http://` or `https://`).
 
         These are more like an address: the browser may not know exactly where the address is, but it can look it up.
 
@@ -524,6 +533,7 @@
         For Windows Users, go to the **File** menu and choose Settings.
 
         ![](framework/img/workshop/atom-preferences.jpg)<!-- .element: width="70%" -->
+        ![](framework/img/workshop/atom-settings-pc.jpg)<!-- .element: width="20%" -->
 
         Select the **Editor** tab in the left menu
 
@@ -548,7 +558,7 @@
       <script type="text/template">
       # Exercise: Update the content (~15mins)
 
-      We’re still focusing on the HTML so don’t worry about how it looks just yet. Take this time to personalize your content. Some suggestions are:
+      We’re still focusing on the HTML, so don’t worry about how it looks just yet. Take this time to personalize your content. Some suggestions are:
 
       *   Header section: name & tagline
       *   About Me / Profile blurb & image
@@ -616,10 +626,10 @@
       <script type="text/template">
         #Practice writing some CSS
 
-        Try changing the color value below and increase/decrease the padding values and see what happens!
+        Try changing the color value below and increase/decrease the font size to see what happens!
 
         <textarea class="snippet" data-subject="#css-practice">color: slateblue;
-        padding: 10px 15px 80px 60px;</textarea>
+        font-size: 20px;</textarea>
 
         <div id="css-practice" class="example">
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam nesciunt sint beatae dolor dolorum aliquid quis explicabo vitae numquam.
@@ -768,7 +778,7 @@ selector { /* select the paragraph inside of the about element */
         ```
 
 
-        > The styles are there but try resizing the browser.  What happens?
+        > The styles are there, but try resizing the browser.  What happens?
       </script>
     </section>
 
@@ -920,9 +930,9 @@ selector { /* select the paragraph inside of the about element */
       <script type="text/template">
         #Media Queries
 
-        Media queries are the key to making a responsive website because it allows you to apply CSS to your document *only* when the screen has reach a certain size.
+        Media queries are the key to making a responsive website because it allows you to apply CSS to your document *only* when the screen has reached a certain size.
 
-        Let's take a look at a basic media query.
+        Let's take a look at a basic media query:
 
         ```css
         @media (max-width: 940px) {
@@ -1061,7 +1071,7 @@ selector { /* select the paragraph inside of the about element */
         940px - 1024px — Tablet landscape, small desktop<br>
         1280px & greater — Desktop
 
-        <!-- .element: class="note" -->**Pro tips!** Use fluid CSS whenever possible, add a breakpoint when the design breaks or no longer suitable for that viewport. Also, be careful about using too many breakpoints. If you have two media queries close in size, try moving the styles to one or the other.
+        <!-- .element: class="note" -->**Pro tips!** Use fluid CSS whenever possible, adding a breakpoint when the design breaks or no longer suitable for that viewport. Also, be careful about using too many breakpoints. If you have two media queries close in size, try moving those styles to one or the other.
       </script>
     </section>
 
@@ -1069,7 +1079,7 @@ selector { /* select the paragraph inside of the about element */
       <script type="text/template">
         #Exercise: Media Queries (~15 mins)
 
-        Using the breakpoint guidelines and the first media query example, add two more media queries to target tablet and mobile.
+        Using the breakpoint guidelines and the first media query example, add two more media queries to target tablet and mobile. Start with your largest breakpoint first and add smaller ones further down the stylesheet.
 
         Don't forget to test it by making your browser bigger and smaller!
 
@@ -1139,7 +1149,7 @@ selector { /* select the paragraph inside of the about element */
       <script type="text/template">
         #Testing: Device Mode
 
-        Why does it look like just a smaller version of the desktop site?
+        Why does it look like a smaller version of the desktop site?
 
         ![](framework/img/workshop/emulator-test-1.png)
 
@@ -1183,6 +1193,51 @@ selector { /* select the paragraph inside of the about element */
       </script>
     </section>
 
+    <section class="slide" data-markdown>
+      <script type="text/template">
+        #Padding & Margin
+
+        Padding adds/removes space **inside** of the box using 1 to 4 values. Setting the value to 0 removes default padding.
+
+        Margin is used to add/remove space **around/outside** the element.  Just like padding, it also uses 1-4 values.
+
+        ```css
+        padding: 2px 2px 2px 2px; /*  top, right, bottom, left */
+        padding: 2px 2px 2px; /*  top, right & left, bottom */
+        padding: 2px 2px; /* top & bottom, right & left */
+        padding: 2px; /* same amount of padding on all sides */
+        ```
+        <textarea class="snippet" data-subject="#padding">background: lightblue;
+        padding: 20px;</textarea>
+        <div id="padding">padding test</div>
+
+        <!-- .element: class="note" -->**Note**: Values can be declared using many different units. Read more about it [here](https://developer.mozilla.org/en/docs/Web/CSS/length).
+      </script>
+    </section>
+
+    <section class="slide" data-markdown>
+      <script type="text/template">
+        #Padding & Margin: longhand
+
+        Both `margin` & `padding` can also be declared by specifying a particular side using the longhand syntax.
+
+        ```
+        padding-top: 10px;
+        padding-right: 10px;
+        padding-bottom: 10px;
+        padding-left: 10px;
+        ```
+        ```
+        margin-top: 10px;
+        margin-right: 10px;
+        margin-bottom: 10px;
+        margin-left: 10px;
+        ```
+
+        One more thing! `margin` accepts negative values, `padding` does not.
+      </script>
+    </section>
+
     <section class="slide profile-img" data-markdown>
       <script type="text/template">
         #Class Exercise
@@ -1191,13 +1246,13 @@ selector { /* select the paragraph inside of the about element */
 
         <img src="framework/img/workshop/profile-right.png">
 
-        1. pick a breakpoint to make this change
-        1. move the image to the right side
-        1. adjust the width of the image and content area
+        1. Pick a breakpoint to make this change
+        1. Move the image to the right side
+        1. Adjust the width of the image and content area
 
-        We can achieve this by changing the current CSS. To do this, we'll need to use the same or more specific selector.
+        We can achieve this by changing the rules in our stylesheet. To do this, we'll need to use the same or more specific selector.
 
-        > Let's use the Chrome dev tools to inspect our project page and figure out which selector to use and test out some styles rather than just looking at the CSS file.
+        > Let's use the Chrome Developer tools to inspect our project page and figure out which selector to use and test out some styles, rather than just looking through the CSS file line-by-line.
         </script>
       </section>
 
@@ -1207,10 +1262,12 @@ selector { /* select the paragraph inside of the about element */
 
         Using the dev tools, we've determined where and what changes to make. Take this time to try the instructions below to add these updates to your project.  Work with a partner or with a mentor!
 
-        1. Add a media query with a breakpoint around 768px - 900px-ish
+        1. Add a media query with a breakpoint somewhere around 768px - 900px
         1. Adjust the `.profile-image` rule to:
           * increase the profile image width;
           * make the image appear on the right.
+
+        These are the rules being applied to the image already:
 
         ```
           flex-basis: 27%;
@@ -1218,10 +1275,6 @@ selector { /* select the paragraph inside of the about element */
         ```
 
         > The property `flex-basis` comes from a layout method called `flexbox` , so increasing the size of the image will cause the summary to scale down automatically. More on `flexbox` in the next slide!
-
-        ##Hints:
-        * Moving the image to the right will require a new declaration.
-        * A sample solution is on the next slide.
       </script>
     </section>
 
@@ -1269,7 +1322,7 @@ selector { /* select the paragraph inside of the about element */
       <script type="text/template">
       #What else can we change?
 
-      The **Work Experience** section at a smaller resolution, starts to look squished.  Let's go back to the Chrome dev tools and see what to adjust here.
+      At a smaller resolution, the **Work Experience** section starts to look squished.  Let's go back to the Chrome dev tools and see what to adjust here.
 
       Perhaps changing it from two columns, side by side, to stacking the content on top of each other will do the trick.  Let's try it out!
 
@@ -1281,7 +1334,7 @@ selector { /* select the paragraph inside of the about element */
       <script type="text/template">
         #Exercise (~20mins) - Updating Work Experience
 
-        After looking at the Work Experience section, we've determined where the changes need to be made. The below snippet is the base CSS.
+        After looking at the Work Experience section, we've determined where the changes need to be made. These are the rules being applied to the element already:
 
         ```css
         .work-experience .details {
@@ -1290,13 +1343,13 @@ selector { /* select the paragraph inside of the about element */
         }
         ```
 
-        * To get rid of the floated two columns try adding these styles:
-        * To convert the two column layout to a single column, lets:
-          * Change the orientation of the flex parent (ie. `.item`).
-          * Adjust the width of the `.details` and `.description`.
-          * Remove/update the padding and margins.
+        To convert the two column layout to a single column, lets:
 
-        <!-- .element: class="note" -->**Pro tip!** Only use the properties that need to be changed.  For example, if the font-size doesn't need to be change, no need to add it to the media query.
+        1. Change the *direction* (hint of the flex property you should look for) of the parent element (in this case `.item`)
+        1. Adjust the width of the `.details` and `.description` using `flex-basis`
+        1. Remove/change the padding
+
+        <!-- .element: class="note" -->**Pro tip!** If you are copying the base styles and pasting them into your media query, only use the properties that need to be changed. For example, if the `font-size` doesn't need to be changed, just remove that property. No need to repeat ourselves!
 
         Solution CSS on the next slide but try not to peek!
       </script>
@@ -1335,10 +1388,11 @@ selector { /* select the paragraph inside of the about element */
 
         Try changing so values and see how this slide changes!
 
-        <textarea class="snippet">margin: 0;
-        padding: 45px 64px;
+        <textarea class="snippet">
         line-height: 1.4;
-        font-size: 32px;</textarea>
+        font-size: 32px;
+        font-weight: 500;
+        text-align: left;</textarea>
       </script>
     </section>
 
@@ -1350,9 +1404,9 @@ selector { /* select the paragraph inside of the about element */
 
         At around a 600px resolution, the header area becomes hard to read and takes up a lot of space for a smaller screen.
 
-        That should be updated to make better use of the space for that resolution.
+        Let's change that to make better use of the space for that resolution.
 
-        Some things that could be updated is the `padding` in the `header` tag and the `font-size` of the `h1` and `h2` in the header.
+        You can change the `padding` in the `header` tag, and the `font-size` of the `h1` and `h2` in the `header`.
       </script>
     </section>
 
@@ -1360,10 +1414,10 @@ selector { /* select the paragraph inside of the about element */
       <script type="text/template">
         #Exercise: Update the header (~20mins)
 
-        Make these changes in the 600px media query.
+        Make these changes in the 600px media query:
 
         1. Reduce the padding in the `header`.
-        1. Change the font-size of the h1 and h2 BUT make sure to target only the headings *nested* in the `header` tag.
+        1. Change the font-size of the `h1` and `h2` BUT make sure to target only the headings *nested* in the `header` tag.
 
         **Hint!** Use a descendant selector.
       </script>
@@ -1400,7 +1454,7 @@ selector { /* select the paragraph inside of the about element */
 
         Make these changes in the 600px media query.
 
-        1. Make sure the socials and info span the full width of their parent.
+        1. Make sure the social media icons and contact info span the full width of their parent.
         1. Align the social icons to the left.
         1. Change the order of the content so that the socials appear above the info.
 
@@ -1440,7 +1494,7 @@ selector { /* select the paragraph inside of the about element */
 
         Here's how to do it, but don't make this a habit.
 
-        It's convenient but the browser still needs to load this code, and that slows your site down.
+        It's convenient, but the browser still needs to load this code, and that slows your site down.
 
         ```css
         @media (max-width: somewidthpx) {
@@ -1456,7 +1510,7 @@ selector { /* select the paragraph inside of the about element */
 
     <section class="slide" data-markdown>
       <script type="text/template">
-        #min-width
+        #min-width - Mobile First
 
         So far we've been using `max-width` to declare our media queries and then overriding some of the styles as the screen sizes get smaller.
 
@@ -1502,9 +1556,10 @@ selector { /* select the paragraph inside of the about element */
 
       *   If you have an existing site you want to make responsive, create a list of improvements that could be made and prioritize them. It's okay if you don't get to the bottom of the list!
       *   Think about **HOW** your user will be using your site: mobile interactions are different!
-      *   Keep it simple! Less words, utilize white space.
+        *   Try to avoid fixed elements & hover effects as necessary parts of the functionality of your site (you can't hover on a touch-screen).
+      *   Keep it simple! Use less words, utilize white space.
       *   Remember, your site will never look pixel perfect on 100% of screen sizes.
-      *   Try to avoid fixed elements & hover effects as necessary parts of the functionality of your site (you can't hover on a touch-screen).
+      
       </script>
     </section>
 
@@ -1524,14 +1579,16 @@ selector { /* select the paragraph inside of the about element */
       <script type="text/template">
       #Additional Resources
 
-      * Books from the A Book Apart Series:
-        * [Responsive Web Design](https://abookapart.com/products/responsive-web-design)
-        * [Mobile First](http://www.lukew.com/resources/mobile_first.asp) by Luke Wroblewski
+      * [Explore more Ladies Learning Code workshops](http://canadalearningcode.ca)
       * [Learn to Code Advanced HTML & CSS](http://learn.shayhowe.com/advanced-html-css/)
       * [Responsive Resources](http://bradfrost.github.io/this-is-responsive/resources.html)
       * [mediaqueri.es](http://mediaqueri.es/) - collection of responsive websites for inspiration
       * [Mobile Menus (Navigation)](http://responsivenavigation.net/)
       * [Google: The New Multi-Screen World](https://www.thinkwithgoogle.com/research-studies/the-new-multi-screen-world-study.html)
+      * [Pixels Are Dead: Why You Should Stop Using Pixels In CSS](https://medium.com/@julienetienne/pixels-are-dead-faa87cd8c8b9)
+      * Books from the A Book Apart Series:
+        * [Responsive Web Design](https://abookapart.com/products/responsive-web-design)
+        * [Mobile First](https://abookapart.com/products/mobile-first)
 
       </script>
     </section>
@@ -1539,8 +1596,6 @@ selector { /* select the paragraph inside of the about element */
     <section class="slide small-type" data-markdown>
       <script type="text/template">
       #Next Steps
-
-      Explore more Ladies Learning Code workshops at [http://canadalearningcode.ca](http://canadalearningcode.ca).
 
       ##Getting your site online
 
